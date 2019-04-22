@@ -1,0 +1,41 @@
+  .bg-image {
+    background-image:url('../../assets/images/studentAppLogin.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90%;
+    padding: 10%;
+  }
+
+  .bg-login {
+    background-color:whitesmoke; 
+    background-position: center;
+    opacity:0.8; 
+    border-radius: 3px;
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-right:25%;
+  }
+
+  .formItemField {
+    width: 50%;
+    margin-left: 25%;
+    margin-right:25%;
+  }
+
+  .formBtn {
+    width: 32%;
+    margin-left: 34%;
+    margin-right:34%;
+    margin-top: 2%;
+  }
+
+  .login-form {
+    margin-top: 7%;
+    padding-bottom: 5%;
+  }
+
+  .login-title {
+    padding-top: 5%;
+  }

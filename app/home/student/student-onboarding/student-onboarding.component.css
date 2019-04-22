@@ -1,0 +1,29 @@
+.onboarding-form {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    margin-left: 17%;
+    margin-right: 17%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+  }
+
+  mat-form-field {
+    margin-top: 1%;
+  }
+.heading {
+  margin-top: 3%;
+  color: rebeccapurple;
+}
+
+.documents {
+  padding-left: 20%;
+}
+
+.formBtn {
+  width: 38%;
+  margin-left: 31%;
+  margin-right:31%;
+  margin-top: 2%;
+}
+

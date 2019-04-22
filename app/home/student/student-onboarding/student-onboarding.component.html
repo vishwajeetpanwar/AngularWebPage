@@ -1,0 +1,56 @@
+<so-home></so-home>
+
+<div class="container">
+  <div class="text-center heading"><h3 class="headline">{{formTitle}}</h3></div>
+  <mat-divider></mat-divider>
+  <form class="onboarding-form" [formGroup]="onboardingForm" (ngSubmit)="onRequestSubmit()" novalidate>
+    <mat-form-field>
+      <mat-label>Student Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your name" [errorStateMatcher]="matcher" required>
+      <mat-error>{{errors.personName}}</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="matFormField">
+      <mat-label>Student Category Type</mat-label>
+      <mat-select formControlName="studentCategoryType" (selectionChange)="OnChangeStudentCategoryType()" required>
+        <mat-option value="Domestic" default>Domestic</mat-option>
+        <mat-option value="International">International</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-label>Documents: </mat-label>
+    <section class="documents" *ngFor="let document of documentCheckboxes.controls; let i=index">
+      <mat-checkbox [formControl]="document">{{documents[i].name}}<span *ngIf="documents[i].isMandatory">*</span></mat-checkbox>
+    </section>
+    <mat-error *ngIf='mandatoryDocumentsPresent'>{{errors.documentsNotPresent}}</mat-error>
+
+    <mat-form-field color="primary">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput formControlName="dob" placeholder="Enter Date of Birth" [min]="dobMinDate" [max]="dobMaxDate" [matDatepicker]="dobDatepicker" [errorStateMatcher]="matcher" required>
+      <mat-datepicker-toggle matSuffix color="primary" [for]="dobDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #dobDatepicker startView="year" [startAt]="dobStartDate" color="accent"></mat-datepicker>
+      <mat-error>{{errors.dob}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Father's Name</mat-label>
+      <input matInput formControlName="fatherName" placeholder="Enter Father's Name" [errorStateMatcher]="matcher" required>
+      <mat-error>{{errors.personName}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mother's Name</mat-label>
+      <input matInput formControlName="motherName" placeholder="Enter Mother's Name" [errorStateMatcher]="matcher" required>
+      <mat-error>{{errors.personName}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Class Score</mat-label>
+      <input type="number" formControlName="lastClassScore" matInput placeholder="Marks" [errorStateMatcher]="matcher" required>
+      <mat-error>{{errors.score}}</mat-error>
+      <mat-icon matSuffix color="primary">%</mat-icon>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" class="mat-raised-button mat-primary formBtn" [disabled]="formTypeRequest === 'view'">Submit</button>
+  </form>
+</div>  

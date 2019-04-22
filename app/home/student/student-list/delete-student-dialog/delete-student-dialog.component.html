@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+  <p>Are you sure you want to delete <b>{{student.name}}</b>'s record?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No <i class="material-icons">close</i></button>
+  <button mat-button [mat-dialog-close]="student.id">Yes <i class="material-icons">check</i></button>
+</div>

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    
+    <span><mat-icon class="material-icons md-36">school </mat-icon></span> &nbsp;&nbsp;&nbsp;
+    <span (click)="navigateToHome()">{{title}}</span>
+
+    <span class="shift-to-right"></span>
+    <span *ngIf="authService.isAuthenticated" >
+        <span><mat-icon class="material-icons md-36">person</mat-icon></span> &nbsp;&nbsp;
+        <span> {{authService.userName | titlecase}}</span> &nbsp;&nbsp;
+        <span (click)="logOut()">Log out</span> &nbsp;&nbsp;
+    </span>
+
+</mat-toolbar>

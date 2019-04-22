@@ -1,0 +1,52 @@
+<so-home></so-home>
+<div class="container">
+
+<mat-toolbar class="toolbar">
+    <mat-form-field class="matFormField" color="primary" appearance="fill">
+        <mat-label>Student Type</mat-label>
+        <mat-select [(value)]="studentTypeSelected" (change)="onStudentCategoryTypeChange(value)">
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Domestic">Domestic</mat-option>
+            <mat-option value="International">International</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <span class="shift-to-right"></span>
+    <mat-form-field class="matFormField" color="primary" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input color="primary" matInput placeholder="Student Name" [(ngModel)]="nameFilter">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</mat-toolbar>
+
+<br><br>
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor='let student of students | filterByStudentCategory:studentTypeSelected | filterByName:nameFilter; let i = index'>
+        
+        <mat-expansion-panel-header [style.background-color]="student.studentCategoryType == 'Domestic' ? domesticColor : internationalColor">
+            <mat-panel-title><span class="panel-title">{{i+1}}.)&nbsp;{{student.name | uppercase}}</span></mat-panel-title>
+            <mat-panel-description><span class="shift-to-right"></span><span>{{student.studentCategoryType | titlecase}} student</span></mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <mat-list role="list">
+            <h3 mat-subheader>PARENTS</h3>
+            <mat-list-item role="listitem"><span class="student-list-item-label">Father's Name: </span> <span class="student-list-item-data">{{student.fatherName | titlecase}}</span></mat-list-item>
+            <mat-list-item role="listitem"><span class="student-list-item-label">Mother's Name: </span><span class="student-list-item-data">{{student.motherName | titlecase}}</span></mat-list-item>
+
+            <mat-divider></mat-divider>
+            <h3 mat-subheader>Personal Info</h3>
+            <mat-list-item role="listitem"><span class="student-list-item-label">Student Data of Birth: </span><span class="student-list-item-data">{{student.dob | date}}</span></mat-list-item>
+            <mat-list-item role="listitem"><span class="student-list-item-label">Last Class Score: </span><span class="student-list-item-data">{{student.lastClassScore}}%</span></mat-list-item>
+        </mat-list>
+
+        <mat-action-row>
+            <button mat-stroked-button color="primary" class="mat-stroked-button mat-primary" [routerLink]='["/home/onboarding", {id: student.id, request: "view" }]'>View</button>
+            <button mat-stroked-button color="primary" class="mat-stroked-button mat-primary" [routerLink]='["/home/onboarding", {id: student.id, request: "edit" }]'>Edit</button>
+            <button mat-stroked-button color="warn" class="mat-stroked-button mat-warn" (click)="openDialog(student)">Delete</button>
+        </mat-action-row>
+
+    </mat-expansion-panel>
+    <mat-divider></mat-divider>
+</mat-accordion>
+</div>  

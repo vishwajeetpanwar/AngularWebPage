@@ -1,0 +1,26 @@
+<div class="bg-image">
+  <div class="bg-login" >
+
+    <div class="text-center login-title">
+        <h3 style="background-color:primary">{{title | uppercase}}</h3>
+    </div>
+    
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field class="formItemField" appearance="outline" color="primary">
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="username" placeholder="User Name" backgroundColor="accent" required>
+      </mat-form-field>
+
+      <mat-form-field class="formItemField" appearance="outline" color="primary" backgroundColor="accent">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" backgroundColor="accent" formControlName="password" placeholder="Enter your password" [type]="hidePassword ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword" color="primary">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    
+      <button type="submit" mat-stroked-button color="primary" class="mat-stroked-button mat-primary formBtn" [disabled]="!loginForm.valid">Login</button>
+      <button type="button" mat-stroked-button color="warn" class="mat-stroked-button mat-warn formBtn" (click)="reset()">Reset</button>
+      
+    </form>
+  </div>
+</div>
+

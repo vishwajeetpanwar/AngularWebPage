@@ -1,0 +1,30 @@
+.shift-to-right {
+    flex: 1 1 auto;
+}
+
+.matFormField {
+    font-size: 14px
+}
+
+.toolbar {
+    height: auto;
+    padding-top: 1.5%;
+}
+
+.panel-title {
+    width: auto;
+    height: auto;
+    margin-left: 1%;
+}
+
+.student-list-item-data {
+    margin-left: 10%;
+    width: 40%;
+    text-align: left;
+}
+
+.student-list-item-label {
+    margin-left: 5%;
+    width: 30%;
+    text-align: left;
+}
