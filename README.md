@@ -32,3 +32,7 @@ Application Execution:
 General, data for students is fetched from psuedo backend using InMemoryWebAPI and data for documents is fetched using LocalStorage.
 Authentication gurad does not allow user to access any pages except the login page without authentication. 
 
+Future work: 
+
+1) Writing unit tests.
+2) Creating sign up page for the application.
